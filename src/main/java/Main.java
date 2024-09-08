@@ -9,7 +9,7 @@ public class Main
     {
         App.window = new RenderWindow(new VideoMode(1000, 800), "MyWindow");
         while (App.window.isOpen()) {
-            App.checkEvents();
+            App.checkEvents(); 
             App.window.clear();
             
             // game logic
