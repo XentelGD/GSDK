@@ -1,26 +1,20 @@
 package examples;
 
 import gsdk.App;
-import gsdk.mwidgets.TextButton;
+import gsdk.FMouse;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.window.VideoMode;
 
-public class TextButtonExample {
-
+public class FMouseExample {
     public static void main(String[] args)
     {
         App.window = new RenderWindow(new VideoMode(1000, 800), "MyWindow");
-
-        TextButton textButton = new TextButton("Hello!", 10, 10, 300, 140);
-        textButton.onClick = () -> {
-            System.out.println("Hello!");
-        };
 
         while (App.window.isOpen()) {
             App.checkEvents();
             App.window.clear();
 
-            textButton.draw();
+            System.out.println("X: " + FMouse.x + "   Y:" + FMouse.y);
 
             App.window.display();
         }

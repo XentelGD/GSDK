@@ -1,5 +1,8 @@
 package gsdk;
 
+import org.jsfml.graphics.Font;
+import org.jsfml.graphics.Texture;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
@@ -37,6 +40,26 @@ public class Resource {
             System.err.println("[GSDK ERROR] Resource is not found");
         }
         return null;
+    }
+
+    public static Texture loadTexture(String path) {
+        Texture texture = new Texture();
+        try {
+            texture.loadFromStream(getAsStream(path));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return texture;
+    }
+
+    public static Font loadFont(String path) {
+        Font font = new Font();
+        try {
+            font.loadFromStream(getAsStream(path));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return font;
     }
 
 }

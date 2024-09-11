@@ -2,7 +2,6 @@ package examples;
 
 import gsdk.App;
 import gsdk.Draw;
-import gsdk.mwidgets.TextButton;
 import org.jsfml.graphics.Color;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.window.VideoMode;
