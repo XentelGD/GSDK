@@ -1,11 +1,7 @@
 import gsdk.*;
-import org.jsfml.graphics.Color;
 import org.jsfml.graphics.RenderWindow;
-import org.jsfml.graphics.Texture;
 import org.jsfml.window.VideoMode;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main
 {

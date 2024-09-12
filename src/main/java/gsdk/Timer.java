@@ -26,7 +26,7 @@ public class Timer {
         new Thread(() -> {
             currentRepeats = 0;
 
-            if (repeats != GSDK.INFINITY) {
+            if (repeats != Gsdk.INFINITY) {
 
                 while (currentRepeats < repeats) {
                     try {

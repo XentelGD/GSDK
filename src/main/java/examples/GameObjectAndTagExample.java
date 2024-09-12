@@ -23,17 +23,16 @@ public class GameObjectAndTagExample {
                     (float)(Math.random() * App.window.getSize().y),
                     texture
             );
-            gameObject.sprite.setColor(new Color(255, 255, 255, 200));
-            gameObject.scaleX = 0.01f;
-            gameObject.scaleY = 0.01f;
-            gameObject.applyChanges();
+            //                                    red  green blue alpha
+            gameObject.sprite.setColor(new Color( 255,   0,  255,  100));
+            gameObject.setScale(0.01f, 0.01f);
 
             // adding every gameObject to the tag
             Tag.addGameObject("butterflies", gameObject);
         }
 
         // creating an infinite timer
-        Timer timer = new Timer(0f, GSDK.INFINITY, () -> {
+        Timer timer = new Timer(0f, Gsdk.INFINITY, () -> {
             // setting an offset to every object every frame
             Tag.setOffset(
                     "butterflies",

@@ -1,8 +1,11 @@
 package gsdk;
 
 import gsdk.mwidgets.*;
+import org.jsfml.graphics.FloatRect;
 import org.jsfml.graphics.RenderWindow;
+import org.jsfml.graphics.View;
 import org.jsfml.system.Clock;
+import org.jsfml.system.Vector2f;
 import org.jsfml.window.Mouse;
 import org.jsfml.window.event.Event;
 
@@ -13,6 +16,7 @@ import java.util.List;
 public class App {
 
     public static RenderWindow window;
+    public static View view = new View();
     public static float deltaTime, fps = 0f;
     public static Clock clock = new Clock();
     public static HashMap<String, List<GameObject>> tags = new HashMap<>();
@@ -42,6 +46,16 @@ public class App {
                     }
                 }
 
+            }
+
+            if (event.type == Event.Type.RESIZED) {
+                // resize my view
+                view.setSize(new Vector2f(
+                        event.asSizeEvent().size.x,
+                        event.asSizeEvent().size.y
+                ));
+                view.setCenter(App.window.getSize().x / 2, App.window.getSize().y / 2);
+                window.setView(view);
             }
 
         }
