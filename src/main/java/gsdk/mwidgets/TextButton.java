@@ -13,7 +13,6 @@ public class TextButton extends Widget {
     public Listener onClick, onRelease, onHover, onHoverEnd;
     protected final RectangleShape rectangleShape;
     protected final Text visualText;
-    protected final Font font = new Font();
     public boolean isTouching = false;
     public boolean isActive = true;
     public String text;
@@ -25,7 +24,7 @@ public class TextButton extends Widget {
             hoverColor = new Color(210, 210, 210),
             textColor = new Color(0, 0, 0);
 
-    public TextButton(String text, float x, float y, float width, float height) {
+    public TextButton(String text, Font font, float x, float y, float width, float height) {
         this.text = text;
         this.x = x;
         this.y = y;
@@ -34,10 +33,6 @@ public class TextButton extends Widget {
         rectangleShape = new RectangleShape(new Vector2f(width, height));
         rectangleShape.setPosition(x, y);
 
-        try {
-            font.loadFromStream(Resource.getAsStream("/font/roboto-r.ttf"));
-
-        } catch (Exception ignored) {}
         visualText = new Text(text, font);
 
         applyChanges();
