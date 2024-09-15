@@ -21,8 +21,11 @@ public class LocalizationExample
         System.out.println(localization.getLocalizedText("en-US", "copper"));
 
         while (App.window.isOpen()) {
-            App.checkEvents();
             App.window.clear();
+            App.checkEvents();
+
+            // your code
+
             App.window.display();
         }
     }

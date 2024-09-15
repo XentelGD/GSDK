@@ -1,33 +1,21 @@
 package examples;
 
-import gsdk.App;
-import gsdk.Draw;
-import gsdk.FMouse;
-import gsdk.Timer;
+import gsdk.*;
 import org.jsfml.graphics.Color;
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.window.VideoMode;
 
-public class TimerExample {
+public class DebugExample {
     public static void main(String[] args)
     {
         App.window = new RenderWindow(new VideoMode(1000, 800), "MyWindow");
-        // creating the timer
-        Timer timer = new Timer(0.5f, 10, () -> {
-            System.out.println("timer is working!");
-        });
 
-        // optional! adding onEndListener to the timer
-        timer.addOnEndListener(() -> {
-            System.out.println("timer ended");
-        });
-
-        // starting the timer
-        timer.start();
+        Debug.Mode.displayFps = true;
 
         while (App.window.isOpen()) {
             App.window.clear();
             App.checkEvents();
+
 
             // demonstrating that program doesn't stop while timer is running
             Draw.circle(
@@ -35,6 +23,8 @@ public class TimerExample {
                     FMouse.y, 10, new Color(255, 100, 100)
             );
 
+            // drawing debug elements
+            App.drawDebugElements();
             App.window.display();
         }
     }

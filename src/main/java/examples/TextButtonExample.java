@@ -20,8 +20,8 @@ public class TextButtonExample {
         };
 
         while (App.window.isOpen()) {
-            App.checkEvents();
             App.window.clear();
+            App.checkEvents();
 
             textButton.draw();
 

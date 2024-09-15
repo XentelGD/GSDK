@@ -26,8 +26,9 @@ public class ImageButtonExample {
         };
 
         while (App.window.isOpen()) {
-            App.checkEvents();
             App.window.clear();
+            App.checkEvents();
+
 
             // drawing button
             textButton.draw();

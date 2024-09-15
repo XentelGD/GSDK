@@ -25,8 +25,9 @@ public class DeltaTimeExample {
 
 
         while (App.window.isOpen()) {
-            App.checkEvents();
             App.window.clear();
+            App.checkEvents();
+
 
             text.setString("Delta time: " + (float)App.deltaTime + " sec");
             App.window.draw(text); // text draw

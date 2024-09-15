@@ -12,8 +12,9 @@ public class DrawExample {
         App.window = new RenderWindow(new VideoMode(1000, 800), "MyWindow");
 
         while (App.window.isOpen()) {
-            App.checkEvents();
             App.window.clear();
+            App.checkEvents();
+
 
             Draw.circle(0, 0, 200, new Color(144, 234, 21));
 

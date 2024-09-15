@@ -1,9 +1,7 @@
 package gsdk;
 
 import gsdk.mwidgets.*;
-import org.jsfml.graphics.FloatRect;
-import org.jsfml.graphics.RenderWindow;
-import org.jsfml.graphics.View;
+import org.jsfml.graphics.*;
 import org.jsfml.system.Clock;
 import org.jsfml.system.Vector2f;
 import org.jsfml.window.Mouse;
@@ -20,11 +18,14 @@ public class App {
     public static float deltaTime, fps = 0f;
     public static Clock clock = new Clock();
     public static HashMap<String, List<GameObject>> tags = new HashMap<>();
+    public static Font defaultFont = Resource.loadFont("/font/roboto-r.ttf");
 
     public static void checkEvents() {
 
         deltaTime = clock.restart().asSeconds() / 2;
         fps = 1 / deltaTime;
+
+
 
         for (Event event : App.window.pollEvents()) {
             if (event.type == Event.Type.CLOSED) {
@@ -62,6 +63,18 @@ public class App {
 
         FMouse.x = Mouse.getPosition(App.window).x;
         FMouse.y = Mouse.getPosition(App.window).y;
+
+
+    }
+
+    public static void drawDebugElements() {
+        if (Debug.Mode.displayFps) {
+            Text text = new Text(String.valueOf((int)fps), defaultFont);
+            text.setPosition(new Vector2f(5, 5));
+            text.setCharacterSize(20);
+            text.setColor(new Color(100, 250, 100));
+            window.draw(text);
+        }
     }
 
     public static void update() {

@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>GSDK</artifactId>
-    <version>1.4</version>
+    <version>1.4.1</version>
     <dependencies>
         <dependency>
             <groupId>org.jsfml</groupId>

@@ -11,8 +11,8 @@ import org.jsfml.window.Mouse;
 public class TextButton extends Widget {
 
     public Listener onClick, onRelease, onHover, onHoverEnd;
-    protected final RectangleShape rectangleShape;
-    protected final Text visualText;
+    public final RectangleShape rectangleShape;
+    public final Text visualText;
     public boolean isTouching = false;
     public boolean isActive = true;
     public String text;

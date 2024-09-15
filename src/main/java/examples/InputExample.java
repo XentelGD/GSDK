@@ -39,9 +39,12 @@ public class InputExample {
 
 
         while (App.window.isOpen()) {
+            App.window.clear();
             App.checkEvents();
 
             // your game logic...
+
+            App.window.display();
         }
     }
 }

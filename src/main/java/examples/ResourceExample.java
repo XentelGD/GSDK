@@ -17,8 +17,9 @@ public class ResourceExample {
         System.out.println(resData);
 
         while (App.window.isOpen()) {
-            App.checkEvents();
             App.window.clear();
+            App.checkEvents();
+
             App.window.display();
         }
     }

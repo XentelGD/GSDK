@@ -11,8 +11,9 @@ public class FMouseExample {
         App.window = new RenderWindow(new VideoMode(1000, 800), "MyWindow");
 
         while (App.window.isOpen()) {
-            App.checkEvents();
             App.window.clear();
+            App.checkEvents();
+
 
             System.out.println("X: " + FMouse.x + "   Y:" + FMouse.y);
 
