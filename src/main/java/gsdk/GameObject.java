@@ -3,12 +3,25 @@ package gsdk;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class GameObject {
 
     private float x, y, scaleX = 1, scaleY = 1, offsetX = 0, offsetY = 0;
 
     public Texture texture;
     public Sprite sprite;
+    public HashMap<String, Component> components = new HashMap<>();
+
+    public void addComponent(String name, Component component) {
+
+        components.put(name, component);
+
+        this.components.get(name).currentGameObject = this;
+        this.components.get(name).start();
+    }
 
     public GameObject(float x, float y, Texture texture) {
         this.x = x;
@@ -120,6 +133,9 @@ public class GameObject {
     }
 
     public void draw() {
+        for (Component component : components.values()) {
+            component.update();
+        }
         App.window.draw(this.sprite);
     }
 

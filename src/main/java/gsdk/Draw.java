@@ -79,4 +79,12 @@ public class Draw {
 
         App.window.draw(rectangleShape);
     }
+
+    public static void lines(Point2D[] points, float thickness, Color color) {
+        for (int i = 0; i < points.length; i++) {
+            if (i < points.length - 1) {
+                Draw.line(points[i].x, points[i].y, points[i + 1].x, points[i + 1].y, thickness, color);
+            }
+        }
+    }
 }
