@@ -46,8 +46,6 @@ public class ImageButton extends Widget {
         imageWidth =  visualImage.sprite.getGlobalBounds().width;
         imageHeight = visualImage.sprite.getGlobalBounds().height;
 
-
-        //visualImage.setPosition(x + width / 2 - textWidth / 2, y + height / 2 - textHeight / 1.25f);
     }
 
     public void draw() {

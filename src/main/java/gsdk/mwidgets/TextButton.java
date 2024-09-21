@@ -56,7 +56,6 @@ public class TextButton extends Widget {
         float textWidth = visualText.getGlobalBounds().width;
         float textHeight = visualText.getGlobalBounds().height;
 
-
         visualText.setPosition(x + width / 2 - textWidth / 2, y + height / 2 - textHeight / 1.25f);
     }
 

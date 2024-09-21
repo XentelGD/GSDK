@@ -24,14 +24,18 @@ public class GameObjectAndTagExample {
                     texture
             );
             //                                    red  green blue alpha
-            gameObject.sprite.setColor(new Color( 255,   0,  255,  100));
-            gameObject.setScale(0.01f, 0.01f);
+            gameObject
+                    .setPosition(100, 100)
+                    .setScale(100, 200)
+                    .setOffset(0, 0)
+                    .setTexture(texture);
+
 
             // adding every gameObject to the tag
             Tag.addGameObject("butterflies", gameObject);
         }
 
-        // creating an infinite timer
+        // creating an infinite timerЧ
         Timer timer = new Timer(0f, Gsdk.INFINITY, () -> {
             // setting an offset to every object every frame
             Tag.setOffset(

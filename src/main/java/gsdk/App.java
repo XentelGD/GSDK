@@ -55,7 +55,7 @@ public class App {
                         event.asSizeEvent().size.x,
                         event.asSizeEvent().size.y
                 ));
-                view.setCenter(App.window.getSize().x / 2, App.window.getSize().y / 2);
+                view.setCenter((float) App.window.getSize().x / 2, (float) App.window.getSize().y / 2);
                 window.setView(view);
             }
 
@@ -63,7 +63,6 @@ public class App {
 
         FMouse.x = Mouse.getPosition(App.window).x;
         FMouse.y = Mouse.getPosition(App.window).y;
-
 
     }
 

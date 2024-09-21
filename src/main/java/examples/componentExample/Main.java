@@ -19,8 +19,8 @@ public class Main {
         gameObject.addComponent("moving", new MovingComponent());
 
         while (App.window.isOpen()) {
-            App.checkEvents();
             App.window.clear();
+            App.checkEvents();
 
             gameObject.draw();
 

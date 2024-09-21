@@ -1,5 +1,6 @@
 package gsdk;
 
+import org.jsfml.graphics.Color;
 import org.jsfml.graphics.Sprite;
 import org.jsfml.graphics.Texture;
 
@@ -20,7 +21,7 @@ public class GameObject {
         components.put(name, component);
 
         this.components.get(name).currentGameObject = this;
-        this.components.get(name).start();
+        this.components.get(name).onStart();
     }
 
     public GameObject(float x, float y, Texture texture) {
@@ -47,94 +48,114 @@ public class GameObject {
         return x;
     }
 
-    public void setX(float x) {
+    public GameObject setX(float x) {
         this.x = x;
         updatePos();
+        return this;
     }
 
-    public void setPosition(float x, float y) {
+    public GameObject setPosition(float x, float y) {
         this.x = x;
         this.y = y;
         updatePos();
+        return this;
     }
 
     public float getY() {
         return y;
     }
 
-    public void setY(float y) {
+    public GameObject setY(float y) {
         this.y = y;
         updatePos();
+        return this;
     }
 
     public float getScaleX() {
         return scaleX;
     }
 
-    public void setScale(float scaleX, float scaleY) {
+    public GameObject setColor(Color color) {
+        this.sprite.setColor(color);
+        return this;
+    }
+
+    public Color getColor() {
+        return this.sprite.getColor();
+    }
+
+    public GameObject setScale(float scaleX, float scaleY) {
         this.scaleX = scaleX;
         this.scaleY = scaleY;
         updateScale();
+        return this;
     }
 
-    public void setScaleX(float scaleX) {
+    public GameObject setScaleX(float scaleX) {
         this.scaleX = scaleX;
         updateScale();
+        return this;
     }
 
     public float getScaleY() {
         return scaleY;
     }
 
-    public void setScaleY(float scaleY) {
+    public GameObject setScaleY(float scaleY) {
         this.scaleY = scaleY;
         updateScale();
+        return this;
     }
 
     public float getOffsetX() {
         return offsetX;
     }
 
-    public void setOffset(float offsetX, float offsetY) {
+    public GameObject setOffset(float offsetX, float offsetY) {
         this.offsetX = offsetX;
         this.scaleY = offsetY;
         updateOffset();
+        return this;
     }
 
-    public void setOffsetX(float offsetX) {
+    public GameObject setOffsetX(float offsetX) {
         this.offsetX = offsetX;
         updateOffset();
+        return this;
     }
 
     public float getOffsetY() {
         return offsetY;
     }
 
-    public void setOffsetY(float offsetY) {
+    public GameObject setOffsetY(float offsetY) {
         this.offsetY = offsetY;
         updateOffset();
+        return this;
     }
 
     public Texture getTexture() {
         return texture;
     }
 
-    public void setTexture(Texture texture) {
+    public GameObject setTexture(Texture texture) {
         this.texture = texture;
         this.sprite.setTexture(texture);
+        return this;
     }
 
     public Sprite getSprite() {
         return sprite;
     }
 
-    public void setSprite(Sprite sprite) {
+    public GameObject setSprite(Sprite sprite) {
         this.sprite = sprite;
+        return this;
     }
 
     public void draw() {
         for (Component component : components.values()) {
-            component.update();
+            component.onUpdate();
         }
         App.window.draw(this.sprite);
     }

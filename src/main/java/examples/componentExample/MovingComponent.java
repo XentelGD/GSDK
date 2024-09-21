@@ -6,7 +6,7 @@ import org.jsfml.graphics.Color;
 public class MovingComponent extends Component {
 
     @Override
-    public void start() {
+    public void onStart() {
 
         new Timer(0.5f, Gsdk.INFINITY, () -> {
             currentGameObject.sprite.setColor(
@@ -14,13 +14,13 @@ public class MovingComponent extends Component {
             );
         }).start();
 
-        super.start();
+        super.onStart();
     }
 
     @Override
-    public void update() {
+    public void onUpdate() {
         currentGameObject.setPosition(FMouse.x, FMouse.y);
 
-        super.update();
+        super.onUpdate();
     }
 }
